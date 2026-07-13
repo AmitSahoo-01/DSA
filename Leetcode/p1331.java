@@ -1,5 +1,8 @@
 package DSA.Leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class p1331 {
     public static void main(String[] args) {
 
@@ -7,6 +10,7 @@ public class p1331 {
         int []ans = arrayRankTransform(arr);
         System.out.println(ans);
     }
+    List<Integer>ans = new ArrayList<>();
 
         public static int[] arrayRankTransform(int[] arr) {
 
