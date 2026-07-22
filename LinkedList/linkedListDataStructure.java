@@ -51,6 +51,40 @@ class LinkedList{
         }
         size--;
     }
+
+    public int searchElem(int val) {
+        if(head == null){
+            return -1;
+        }
+        Node temp = head;
+        int idx =0;
+        while(temp != null){
+            if(temp.val == val){
+                return idx;
+            }
+            temp = temp.next;
+            idx++;
+        }
+        return -1;
+    }
+
+    public void insertEle(int val, int idx) {
+        if(head == null){
+            System.out.println("list is empty");
+            return;
+        }
+        if (idx == 0 ) addAtHead(val);
+        else {
+            Node temp = head;
+            for (int i = 0; i < idx - 1; i++) {
+                temp = temp.next;
+            }
+            Node t = new Node(val);
+            t.next = temp.next;
+            temp.next = t;
+            size++;
+        }
+    }
 }
 public class linkedListDataStructure {
     public static void main(String[] args) {
@@ -61,9 +95,21 @@ public class linkedListDataStructure {
         ll.addAtTail(490);
         ll.addAtHead(300);
         ll.display();
-        ll.deleteAtHead();
-        ll.deleteAtHead();
+//        ll.deleteAtHead();
+//        ll.deleteAtHead();
+//        ll.display();
+        System.out.println(ll.size);
+        int idx = ll.searchElem(40);
+        System.out.println(idx);
+        ll.display();
+        ll.addAtTail(2333);
+        ll.display();
+        ll.addAtHead(9000);
         ll.display();
         System.out.println(ll.size);
+        ll.insertEle(15,0);
+        ll.display();
+        System.out.println(ll.size);
+
     }
 }
