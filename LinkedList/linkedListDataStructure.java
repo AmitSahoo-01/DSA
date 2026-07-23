@@ -85,6 +85,27 @@ class LinkedList{
             size++;
         }
     }
+
+    public void deleteAtIdx(int idx) {
+        if (idx<0 || idx >= size){
+            System.out.println("invalid index");
+            return;
+        }
+        if (idx == 0){
+            deleteAtHead();
+        }
+        if(head == null){
+            System.out.println("List is empty");
+            return;
+        }
+        Node temp = head;
+        for (int i =0;i<idx-1;i++){
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+        if (idx == size-1) tail = temp;
+        size--;
+    }
 }
 public class linkedListDataStructure {
     public static void main(String[] args) {
@@ -110,6 +131,12 @@ public class linkedListDataStructure {
         ll.insertEle(15,0);
         ll.display();
         System.out.println(ll.size);
-
+        ll.deleteAtIdx(4);
+        ll.display();
+        System.out.println(ll.size);
+        ll.deleteAtIdx(7);
+        ll.display();
+        ll.deleteAtIdx(99);
+        ll.display();
     }
 }
